@@ -7,7 +7,9 @@ function pigLatin(string) {
       if (string.startsWith(vowels[index]) === true) {
         return (string + "way");
       } else {
-        return (string + 'ay');
+        var firstLetter = string.slice(0, 1);
+        var restOfString = string.slice(1, string.length);
+        return (restOfString + firstLetter + 'ay');
       }
   }
 };

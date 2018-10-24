@@ -18,9 +18,9 @@ FORMAT
 
 - [x]| ** Adds "way" to words starting with a vowel ** | Input: "egg" | Output: "eggway" |
 
-| ** Adds 'ay' to word starting with a consonant ** | Input: 'black' | Output: 'blackay' |
+- [x]| ** Adds 'ay' to word starting with a consonant ** | Input: 'black' | Output: 'blackay' |
 
-| ** Moves starting consonants to end of word and adds 'ay' to multiple letter words starting with a consonant ** | Input: 'black' | Output: 'lackbay' |
+- [x]| ** Moves starting consonants to end of word and adds 'ay' to multiple letter words starting with a consonant ** | Input: 'black' | Output: 'lackbay' |
 
 | ** Moves starting consecutive consonants to end of word and adds 'ay' to multiple letter words starting with a consonant ** | Input: 'black' | Output: 'ackblay' |
 
