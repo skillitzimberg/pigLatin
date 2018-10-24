@@ -1,19 +1,22 @@
 
 // BUSINESS LOGIC
 
-function pigLatin(string) {
-  var vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
-  for (var index = 0; index <= vowels.length-1; index ++) {
-      if (string.startsWith(vowels[index]) === true) {
-        return (string + "way");
-      } else {
+function decidePathForProcess(string) {
+  var vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
 
-        var indexOfFirstVowel = findFirstVowel(string, vowels);
-        var consonantsToRemove = string.slice(0, indexOfFirstVowel);
-        var restOfString = string.slice(indexOfFirstVowel, string.length);
-        return (restOfString + consonantsToRemove + 'ay');
-      }
+  for (var index = 0; index <= vowels.length-1; index ++) {
+    if (string.startsWith(vowels[index]) === true) {
+      // debugger;
+      return (string + "way");
+    } else {
+
+      var indexOfFirstVowel = findFirstVowel(string, vowels);
+      var startingConsonants = string.slice(0, indexOfFirstVowel);
+      var firstVowelToEndOfString = string.slice(indexOfFirstVowel, string.length);
+      // debugger;
+      return (firstVowelToEndOfString + startingConsonants + 'ay');
     }
+  }
 };
 
 function findFirstVowel(string, vowelArray) {
@@ -26,13 +29,24 @@ function findFirstVowel(string, vowelArray) {
   }
 };
 
+function pigLatin(inputtedString) {
+  var words = inputtedString.split(' ');
+  var processedWords = "";
+
+  words.forEach(function(word) {
+    processedWords += " " + decidePathForProcess(word);
+
+  });
+  return processedWords;
+}
+
 // UI LOGIC
 $(document).ready(function() {
     $("form#inputForm").submit(function(event) {
       event.preventDefault();
       var givenSentence = $("input#sentence").val();
       var pigResult = pigLatin(givenSentence);
-
+      console.log(pigResult);
       $("#result").text(pigResult);
     });
 });
