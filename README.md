@@ -22,7 +22,7 @@ FORMAT
 
 - [x]| ** Moves starting consonants to end of word and adds 'ay' to multiple letter words starting with a consonant ** | Input: 'black' | Output: 'lackbay' |
 
-| ** Moves starting consecutive consonants to end of word and adds 'ay' to multiple letter words starting with a consonant ** | Input: 'black' | Output: 'ackblay' |
+- [x]| ** Moves starting consecutive consonants to end of word and adds 'ay' to multiple letter words starting with a consonant ** | Input: 'black' | Output: 'ackblay' |
 
 | ** Moves starting consecutive consonants to end of word and adds 'ay' to all multiple letter words starting with a consonant ** | Input: 'black ring' | Output: 'ackblay ingray' |
 
