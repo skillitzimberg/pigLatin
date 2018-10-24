@@ -6,6 +6,8 @@ function pigLatin(string) {
   for (var index = 0; index <= vowels.length-1; index ++) {
       if (string.startsWith(vowels[index]) === true) {
         return (string + "way");
+      } else {
+        return (string + 'ay');
       }
   }
 };
