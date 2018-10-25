@@ -2,27 +2,22 @@
 // BUSINESS LOGIC
 
 function decidePathForProcess(string) {
-  var vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
-
-  for (var index = 0; index <= vowels.length-1; index ++) {
-    if (string.startsWith(vowels[index]) === true) {
-      // debugger;
+  var vowelsRegex = /[aeiou]/i;
+  if (string.search(vowelsRegex) === 0) {
       return (string + "way");
     } else {
-
-      var indexOfFirstVowel = findFirstVowel(string, vowels);
+      var indexOfFirstVowel = findFirstVowel(string);
       var startingConsonants = string.slice(0, indexOfFirstVowel);
       var firstVowelToEndOfString = string.slice(indexOfFirstVowel, string.length);
-      // debugger;
       return (firstVowelToEndOfString + startingConsonants + 'ay');
     }
-  }
-};
+  };
 
-function findFirstVowel(string, vowelArray) {
+function findFirstVowel(string) {
+  var vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
   for (var index = 1; index <= string.length-1; index++) {
-    for (var vowel = 0; vowel <= vowelArray.length-1; vowel++) {
-      if (string[index] === vowelArray[vowel]) {
+    for (var vowel = 0; vowel <= vowels.length-1; vowel++) {
+      if (string[index] === vowels[vowel]) {
         return index;
       }
     }
@@ -32,10 +27,8 @@ function findFirstVowel(string, vowelArray) {
 function pigLatin(inputtedString) {
   var words = inputtedString.split(' ');
   var processedWords = "";
-
   words.forEach(function(word) {
     processedWords += " " + decidePathForProcess(word);
-
   });
   return processedWords;
 }
