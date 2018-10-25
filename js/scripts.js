@@ -1,23 +1,26 @@
 
 // BUSINESS LOGIC
 
-function decidePathForProcess(string) {
+function decidePathForProcess(inputtedString) {
+  var words = inputtedString.split(' ');
   var startingConsonants;
   var vowelsRegex = /[aeiou]/i;
   var lookForQandU = string.search(/^[^aeiou]*qu/i);
 
-  if (string.search(vowelsRegex) === 0) {
-      return (string + "way");
+  words.forEach(function(word) {
+    if (string.search(vowelsRegex) === 0) {
+        return (string + "way");
 
-    } else if (lookForQandU === 0){
-      return handleQandU(startingConsonants, string);
+      } else if (lookForQandU === 0){
+        return handleInitialConsonantGroupsWithQandU(startingConsonants, string);
 
-    } else {
-      return handleNormalInitialConsonantGroups(startingConsonants, string);
-    }
-  };
+      } else {
+        return handleNormalInitialConsonantGroups(startingConsonants, string);
+      }
+    };
+  });
 
-function handleQandU(startingConsonants, string) {
+function handleInitialConsonantGroupsWithQandU(startingConsonants, string) {
   var foundQandU = string.match(/^[^aeiou]*qu/i);
   foundQandU = foundQandU.toString();
   startingConsonants = string.slice(0, foundQandU.length);
