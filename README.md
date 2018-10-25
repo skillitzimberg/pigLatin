@@ -24,7 +24,8 @@ FORMAT
 
 - [x] | ** Moves starting consecutive consonants to end of word and adds 'ay' to a multiple letter word starting with a consonant ** | Input: 'black' | Output: 'ackblay' |
 
-- [x] | ** Moves starting consecutive consonants to end of word and adds 'ay' to all multiple letter words in a string ** | Input: 'black ring' | Output: 'ackblay ingray' |
+- [x] | ** Moves starting consecutive consonants to end of word and adds 'ay' to all multiple letter words in a string **
+| Input: 'black ring' | Output: 'ackblay ingray' |
 
 | ** Moves 'U' with 'Q' if they are conjoined in initial consonant group to end of word and adds 'ay' ** | Input: 'queen' | Output: 'eenquay' |
 
@@ -36,8 +37,6 @@ FORMAT
 Not available yet.
 
 ## Known Bugs
-
-Some words beginning with vowels are being return with the word repeated followed by "way".
 
 ## Support and contact details
 
@@ -51,4 +50,4 @@ HTML, CSS, & Javascript.
 
 Licensed under the MIT license.
 
-Copyright (c) 2018 **_{List of contributors or company name}_**
+Copyright (c) 2018 **Jacey Tupa & Scott Bergler_**

@@ -34,6 +34,7 @@ function pigLatin(inputtedString) {
 }
 
 // UI LOGIC
+
 $(document).ready(function() {
     $("form#inputForm").submit(function(event) {
       event.preventDefault();
