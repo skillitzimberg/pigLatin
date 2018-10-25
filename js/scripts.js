@@ -5,25 +5,32 @@ function decidePathForProcess(string) {
   var startingConsonants;
   var vowelsRegex = /[aeiou]/i;
   var lookForQandU = string.search(/^[^aeiou]*qu/i);
-  var foundQandU = string.match(/^[^aeiou]*qu/i);
 
   if (string.search(vowelsRegex) === 0) {
       return (string + "way");
 
     } else if (lookForQandU === 0){
-      foundQandU = foundQandU.toString();
-      console.log(foundQandU.length);
-      startingConsonants = string.slice(0, foundQandU.length);
-      var nextVowelToEndOfString = string.slice(foundQandU.length, string.length);
-      return (nextVowelToEndOfString + startingConsonants + 'ay');
+      return handleQandU(startingConsonants, string);
 
     } else {
-      var indexOfFirstVowel = findFirstVowel(string);
-      startingConsonants = string.slice(0, indexOfFirstVowel);
-      var firstVowelToEndOfString = string.slice(indexOfFirstVowel, string.length);
-      return (firstVowelToEndOfString + startingConsonants + 'ay');
+      return handleNormalInitialConsonantGroups(startingConsonants, string);
     }
   };
+
+function handleQandU(startingConsonants, string) {
+  var foundQandU = string.match(/^[^aeiou]*qu/i);
+  foundQandU = foundQandU.toString();
+  startingConsonants = string.slice(0, foundQandU.length);
+  var nextVowelToEndOfString = string.slice(foundQandU.length, string.length);
+  return (nextVowelToEndOfString + startingConsonants + 'ay');
+}
+
+function handleNormalInitialConsonantGroups(startingConsonants, string) {
+  var indexOfFirstVowel = findFirstVowel(string);
+  startingConsonants = string.slice(0, indexOfFirstVowel);
+  var firstVowelToEndOfString = string.slice(indexOfFirstVowel, string.length);
+  return (firstVowelToEndOfString + startingConsonants + 'ay');
+}
 
 function findFirstVowel(string) {
   var vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
@@ -52,7 +59,6 @@ $(document).ready(function() {
       event.preventDefault();
       var givenSentence = $("input#sentence").val();
       var pigResult = pigLatin(givenSentence);
-      console.log(pigResult);
       $("#result").text(pigResult);
     });
 });
