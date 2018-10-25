@@ -2,12 +2,24 @@
 // BUSINESS LOGIC
 
 function decidePathForProcess(string) {
+  var startingConsonants;
   var vowelsRegex = /[aeiou]/i;
+  var lookForQandU = string.search(/^[^aeiou]*qu/i);
+  var foundQandU = string.match(/^[^aeiou]*qu/i);
+
   if (string.search(vowelsRegex) === 0) {
       return (string + "way");
+
+    } else if (lookForQandU === 0){
+      foundQandU = foundQandU.toString();
+      console.log(foundQandU.length);
+      startingConsonants = string.slice(0, foundQandU.length);
+      var nextVowelToEndOfString = string.slice(foundQandU.length, string.length);
+      return (nextVowelToEndOfString + startingConsonants + 'ay');
+
     } else {
       var indexOfFirstVowel = findFirstVowel(string);
-      var startingConsonants = string.slice(0, indexOfFirstVowel);
+      startingConsonants = string.slice(0, indexOfFirstVowel);
       var firstVowelToEndOfString = string.slice(indexOfFirstVowel, string.length);
       return (firstVowelToEndOfString + startingConsonants + 'ay');
     }

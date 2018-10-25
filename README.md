@@ -27,7 +27,7 @@ FORMAT
 - [x] | ** Moves starting consecutive consonants to end of word and adds 'ay' to all multiple letter words in a string **
 | Input: 'black ring' | Output: 'ackblay ingray' |
 
-| ** Moves 'U' with 'Q' if they are conjoined in initial consonant group to end of word and adds 'ay' ** | Input: 'queen' | Output: 'eenquay' |
+- [x] | ** Moves 'U' with 'Q' if they are conjoined in initial consonant group to end of word and adds 'ay' ** | Input: 'queen' | Output: 'eenquay' |
 
 | **  ** | Input: | Output: |
 | **  ** | Input: | Output: |
